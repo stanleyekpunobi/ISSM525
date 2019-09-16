@@ -3,3 +3,53 @@ body {
         sans-serif;
 
 }
+
+.container-fluid {
+    padding: 0%;
+}
+
+.navbar {
+    padding: 1% 10%
+}
+
+.product-card {
+
+    margin: 25% 0 0 8%;
+    text-align: center;
+
+}
+
+.check-out-row {
+    margin: 11% 0 0 -3%;
+    text-align: center;
+    border-left: 1px #f7f7f7 solid;
+    height: 100%;
+}
+
+.product-title {
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.product-description {
+    font-size: 12px;
+}
+
+.product-img {
+    height: 180px;
+}
+
+@media screen and (max-width: 570px) {
+    .product-img {
+        height: 280px;
+    }
+
+    .navbar {
+        padding: 5% 10%
+    }
+
+    .product-card {
+
+        margin: 15% 0 0 10%;
+    }
+}
