@@ -21,7 +21,7 @@
         <div class="d-flex justify-content-center h-100">
             <div class="card">
                 <div class="card-header">
-                    <h3>Vuss. Inc Sign In</h3>
+                    <h3>Sign In</h3>
 
                     <!-- Contains social media icons -->
                     <!-- <div class="d-flex justify-content-end social_icon">
@@ -83,7 +83,6 @@
             //prevents form from re-loading
             e.preventDefault();
             
-                
                 var isLoginValid =checkCred();
                 if(isLoginValid){
                     var newloc = location.href.substr(location.href.lastIndexOf('/'));
@@ -92,9 +91,7 @@
                 }else{
                     alert("Username or Password incorrect!");
                     document.getElementById("loginform").reset();
-                }
-                
-                
+                }        
         })
 
         function checkCred(){
