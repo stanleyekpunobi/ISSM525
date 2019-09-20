@@ -167,7 +167,7 @@ function addToCart(productMetaData, cartItem) {
                 carttotal.innerText = cartTotal;
 
 
-                console.log(newCartTotal)
+                // console.log(newCartTotal)
 
 
             }
@@ -222,6 +222,16 @@ function UpdateCartTotal(cartTotal, productValue, operation) {
 }
 
 $(document).ready(function () {
+
+    //check if user is logged in
+    var isLogin = localStorage.getItem("islogin")
+
+    if (isLogin != null || undefined) {
+        var logoutbutton = document.getElementById("loginatag");
+        logoutbutton.innerText = "Log out";
+    } else {
+        window.location.replace("http://127.0.0.1:5500/login.html");
+    }
 
     //add products
     addProductsToPage(5);
