@@ -43,29 +43,26 @@
 
     </div>
 
-    <div class="container">
+    <div class="container-fluid store-body">
         <div class="row">
             <div class="col-md-8 col-sm-12">
                 <div class="row" id="productsrow">
                     <div class="col-md-4">
                         <div class="card product-card">
-                            <img src="https://5.imimg.com/data5/NO/IM/MY-49231027/e-heart-defibrillator-500x500.jpg"
-                                class="card-img-top" alt="...">
+                            <img src="https://smhttp-ssl-77207.nexcesscdn.net/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/2/8/2886m2.jpg"
+                                class="card-img-top product-img" alt="">
                             <div class="card-body">
-                                <h5 class="card-title product-title">Sample item</h5>
-                                <p class="card-text product-description">With supporting text below as a natural lead-in
-                                    to additional
-                                    content.
+                                <h5 class="card-title product-title">Test Model
+                                    <span class="badge badge-pill badge-primary">$20</span>
+                                </h5>
+                                <p class="card-text product-description"> Product code: VSDHGH
+
                                 </p>
 
-                                <button href="#" class="btn btn-outline-primary btn-sm btn-block" role="button">Add to
-                                    cart
-                                </button>
-
+                                <button class="btn btn-outline-success btn-sm btn-block"> Add to cart </button>
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
 
@@ -74,9 +71,36 @@
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">My Cart</h5>
-                            <p class="card-text">
+                            <p class="card-text cart-text" id="cartItem">
+                                <!-- <div class="row cartitem-row">
+                                    <div class="col-md-6">
+
+                                        <p> <img src="https://smhttp-ssl-77207.nexcesscdn.net/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/2/8/2886m2.jpg"
+                                                class="img-fluid" alt=""
+                                                style="max-width: 10%; height: auto"><strong>Product Name</strong></p>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <p><strong>Price</strong></p>
+
+                                    </div>
+                                    <div class="col-md-4">
+                                        <span class="badge badge-primary">Qty</span>
+                                        <button class="btn btn-secondary btn-sm">+</button>
+                                        <button class="btn btn-secondary btn-sm">-</button>
+                                        <button class="btn btn-secondary btn-sm">x</button>
+
+                                    </div>
+                                </div> -->
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <p class="text-right" id="">Total ($): <span id="carttotal"></span></p>
+
+                                    </div>
+                                </div>
                             </p>
-                            <a href="#" class="btn btn-primary">Check out</a>
+                            <a href="#" class="btn btn-primary" id="checkOut">Check Out</a>
+                            <a href="#" class="btn btn-danger" id="clearcart">Clear Cart</a>
                         </div>
                     </div>
                 </div>
@@ -84,6 +108,11 @@
 
         </div>
     </div>
+
+    <div class="footer-section">
+        <p class="footer-content">&copy; Vuss inc. Group F Lab Live Demo</p>
+    </div>
+
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
     </script>
