@@ -274,21 +274,23 @@ $(document).ready(function () {
 
     $("#checkOut").click(function () {
 
-        var cartSummary = {
 
-            ProductId: 0,
-            ProductName: "",
-            Quantity: 0,
-            Image: "",
-            productPrice: 0
-
-        }
 
         cartDataList.length = 0;
 
         var cartItemsDomList = document.querySelectorAll(".cartitem-row");
 
         cartItemsDomList.forEach(element => {
+
+            var cartSummary = {
+
+                ProductId: 0,
+                ProductName: "",
+                Quantity: 0,
+                Image: "",
+                productPrice: 0
+
+            }
 
             var productImage = element.querySelector(".img-fluid");
             var productName = element.querySelector(".p-name");
