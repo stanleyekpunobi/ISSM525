@@ -2,7 +2,7 @@ var productList = [{
         Id: 1,
         Name: 'Medical and Veterinary Anesthesia Machine',
         Description: 'The anesthesia gas machine is a device which delivers a precisely-known but variable gas mixture, including anesthetizing and life-sustaining gases',
-        Price: 6226,
+        Price: 620,
         ImageUrl: 'https://5.imimg.com/data5/FS/PF/MY-3716699/anesthesia-equipment-500x500.jpg',
         ProductCode: 'V00101'
 
@@ -12,7 +12,7 @@ var productList = [{
         Name: 'Jasper Blood Chemistry Analyser',
         Description: 'Clinical chemistry analyzers run assays on clinical samples such as blood serum, plasma, urine,' +
             'to detect the presence of analytes relating to disease or drug',
-        Price: 8000,
+        Price: 800,
         ImageUrl: 'https://images.sciex.com/products/ce/genomelab/GenomeLab-GeXP-550x600.png',
         ProductCode: 'V00102'
 
@@ -22,7 +22,7 @@ var productList = [{
         Name: 'Centrifuge',
         Description: 'A centrifuge is a laboratory device that is used for the separation of fluids, gas or liquid, based on density. Separation is achieved by spinning a vessel containing material at high speed;' +
             'the centrifugal force pushes heavier materials to the outside of the vessel',
-        Price: 10000,
+        Price: 100,
         ImageUrl: 'https://assets.fishersci.com/TFS-Assets/CCG/product-images/F175973~p.eps-650.jpg',
         ProductCode: 'V00103'
 
@@ -32,7 +32,7 @@ var productList = [{
         Name: 'Defibrillator',
         Description: 'Defibrillator is required for reviving the heart functions by providing selected quantum' +
             'of electrical shocks with facility for monitoring vital parameters.',
-        Price: 3000,
+        Price: 300,
         ImageUrl: 'https://5.imimg.com/data5/NO/IM/MY-49231027/e-heart-defibrillator-500x500.jpg',
         ProductCode: 'V00104'
 
@@ -42,7 +42,7 @@ var productList = [{
         Name: 'X-Ray View Box',
         Description: 'The X-Ray Film Viewer(Illuminator) has superior advantages in luminescence mechanism,' +
             'light source quality and service life compared with those of the traditional X- Ray Film View Boxes / Lobby, the entire screen of the observation X - Ray Film Viewer is more brighter, uniform and softer.',
-        Price: 6000,
+        Price: 600,
         ImageUrl: 'https://smhttp-ssl-77207.nexcesscdn.net/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/2/8/2886m2.jpg',
         ProductCode: 'V00105'
 
