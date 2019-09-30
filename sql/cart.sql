@@ -1,0 +1,2 @@
+DROP TABLE IF EXISTS `cart`;
+CREATE TABLE IF NOT EXISTS `cart` ( `id` int(6) NOT NULL AUTO_INCREMENT, `product_code` varchar(16) NOT NULL, `product_name` text NOT NULL, `product_price` varchar(16) NOT NULL, `product_quantity` varchar(16) NOT NULL, `product_cartid` varchar(16) NOT NULL, `user` varchar(25) NOT NULL, `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP, PRIMARY KEY (`id`) )

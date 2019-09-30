@@ -1,3 +1,5 @@
+<?php include('./includes/db.php');
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,7 +17,22 @@
 </head>
 
 <body>
-    <div class="container-fluid">
+    <?php $query = "SELECT * FROM products"; 
+    $result = mysqli_query($conn, $query); 
+    if(mysqli_num_rows($result) > 0) 
+    { 
+    
+     while( $row = mysqli_fetch_array($result)) 
+    { ?>
+    
+    <!-- insert product page html code here -->
+    
+    <?php 
+        
+    } } 
+        
+    ?>
+        <div class="container-fluid">
         <nav class="navbar navbar-expand-lg sticky-top navbar-light bg-light">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03"
                 aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
