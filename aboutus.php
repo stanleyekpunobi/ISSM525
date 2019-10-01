@@ -63,12 +63,36 @@
                             Canada</p>
                     </div>
                     <div class="col-md-6">
-                        <p>Vuss Inc. established in 2019, is health institution that specializes in equipment and
-                            services for hospital and clinics. We are the one stop shop for all hospital and clinics as
-                            we serve them with quality product and services.</p>
+                        <p>Vuss Inc. established in 2019, is a business-to-business company that specializes
+                            in providing equipment and services to hospital and clinics. 
+                            We aim to be the one stop shop for all hospital and clinics as we continue
+                            to serve them with quality product and services.</p>
                     </div>
                 </div>
             </div>
+        </div>
+
+        <hr/>
+        <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h2 class="strong">Mission</h2>
+                    </div>
+                    <div class="col-md-6">
+                        <p>To be the go-to compnay for supplying reliable medical equipment & services</p>
+                    </div>
+                </div>
+        </div>
+        <hr/>
+        <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h2 class="strong">Vision</h2>
+                    </div>
+                    <div class="col-md-6">
+                        <p>To be the best in supplying medical equipment across Canada</p>
+                    </div>
+                </div>
         </div>
 
         <!-- Section: Team v.1 -->
@@ -196,7 +220,7 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
     <!--Nav bar functionality-->
-    <script>
+   <!--  <script>
         //check if user is logged in
         var isLogin = localStorage.getItem("islogin")
 
@@ -206,9 +230,9 @@
         } else {
             window.location.replace("http://127.0.0.1:5500/login.html");
         }
-    </script>
+    </script> -->
 
-    <script src="js/store.js"></script>
+    <!-- <script src="js/store.js"></script> -->
 
 
 </body>
