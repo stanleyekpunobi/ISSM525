@@ -1,3 +1,45 @@
+<?php
+    include("includes/db.php");
+    session_start();
+   // echo("PHP start");
+
+    //ERROR DECLARATION VARIABLES
+     //Set Error Values to EMPTY by default
+      $userError = $passError = "" ;
+
+      //CREATING BOOLEAN FOR CHECKING IF FIELDS ARE EMPTY
+       $isEmpty = FALSE;
+
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){ 
+           // printf("Entered If condition!!!!!!!!!!!!");
+            //DECLARE VARIABLES 
+            $username = mysqli_real_escape_string($conn, $_REQUEST['txtusername']); 
+            $passwd = mysqli_real_escape_string($conn, $_REQUEST['txtpword']); 
+
+           
+                              $sql = "SELECT * FROM users WHERE username = '$username' AND passwd = '$passwd'";
+                              $result = mysqli_query($conn,$sql);
+                              $row = mysqli_fetch_array($result);
+  
+        
+                              //count the no of results returned- it should be only one result
+                              $count = mysqli_num_rows($result);
+                              printf ($count);
+                              if($count == 1) {
+                                  $_SESSION['user'] = $username;
+                                $_SESSION['cartid'] = base64_encode(random_bytes(6)); 
+
+                                  echo("Correct user login");
+                                  header("location: product.php");
+                               }else {
+                                  $error = "Your Login Name or Password is invalid";
+                                  echo("WRONG!! user login");
+                               } 
+        } 
+    mysqli_close($conn)
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,23 +74,25 @@
 
                 </div>
                 <div class="card-body">
-                    <form id="loginform" name="loginform">
+                    <form method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>"id="loginform" name="loginform">
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">
                                     <i class="fas fa-user"></i>
                                 </span>
                             </div>
-                            <input type="text" class="form-control" placeholder="username" id="txtusername" required>
+                            <input type="text" class="form-control" placeholder="username" name="txtusername" id="txtusername" required>
 
                         </div>
+                        <!-- shows error -->
+                        <i class="error"><?php echo $userError; ?></i>
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">
                                     <i class="fas fa-key"></i>
                                 </span>
                             </div>
-                            <input type="password" class="form-control" placeholder="password" id="txtpword" required>
+                            <input type="password" class="form-control" placeholder="password" name="txtpword" id="txtpword" required>
                         </div>
                         <div class="row align-items-center remember">
                             <input type="checkbox">Remember Me
@@ -80,7 +124,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
         crossorigin="anonymous">
         </script>
-        <script src="js/login.js"></script>
+        <!-- <script src="js/login.js"></script> -->
 </body>
 
 </html>

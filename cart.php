@@ -1,6 +1,9 @@
+<?php 
+include("includes/db.php");
+session_start(); 
+?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,13 +13,11 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/custom.css">
+    <link rel="stylesheet" href="css/custom.css">
     <script src="https://kit.fontawesome.com/d0457af364.js"></script>
 </head>
-
 <body>
     <div class="container">
-        <form id="checkoutForm">
             <div class="row">
 
                 <div class="col-md-6 col-sm-12">
@@ -54,25 +55,81 @@
                         </div>
                     </div>
                 </div>
-
+               
                 <div class="col-md-6 col-sm-12">
                     <div class="card checkout-card">
                         <div class="card-body">
                             <h5 class="card-title text-center">My Cart</h5>
-                            <p class="card-text cart-text" id="cartItem" style="font-size: 15px">
-                                <div class="row">
+                                            <p class="card-text cart-text" id="cartItem" style="font-size: 15px">
+
+                <?php
+                if(isset($_SESSION['user']) && isset($_SESSION['cartid'])) 
+                { 
+
+                    $cartid = $_SESSION['cartid'];
+                    $user = $_SESSION['user'];
+                    $cartTotal = 0;
+                    $quantity = 0;
+                    $price = 0;
+                    // echo $cartid;
+                   // echo $user;
+                    $query = "SELECT * FROM cart WHERE product_cartid = '$cartid' AND user = '$user'";
+                    $result = mysqli_query($conn, $query);
+
+                     if(mysqli_num_rows($result) > 0) 
+                    { 
+                    
+                    while( $row = mysqli_fetch_array($result)) 
+                    { 
+                    $price = $row['product_price'];
+                    $quantity = $row['product_quantity'];
+                        $cartTotal = $cartTotal +  (int)$price * (int)$quantity;
+
+                    ?>
+                                <form action="removefromcart.php" method="post">
+                                <input type="hidden" name="product_code" value="<?php echo $row['product_code'] ?>">
+                                 <input type="hidden" name="id" value="<?php echo $row['id'] ?>"> 
+                                 <input type="hidden" name="product_cartid" value="<?php echo $row['product_cartid'] ?>"> 
+                                 <input type="hidden" name="product_quantity" value="<?php echo $row['product_quantity'] ?>">
+                                 <div class="row cartitem-row">
+                                    <div class="col-md-5">
+                                        <strong class="p-name"><?php echo $row['product_name'] ?></strong></p>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <p><strong>Price: <?php echo $row['product_price'] ?></strong>
+                                       </p>
+                                    </div>
+                                    <div class="col-md-2">
+                                     <span class="badge badge-primary quantity">Quantity <?php echo $row['product_quantity'] ?></span>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <button type="submit" class="btn btn-secondary btn-sm remove-cart-item float-right">x</button>
+                                    </div>
+                                 </div>
+                                </form>
+                            <?php
+
+                }
+                }
+            }
+                ?>
+                 <div class="row">
                                     <div class="col-md-12">
-                                        <p class="text-right" id="">Total ($): <span id="carttotal"></span></p>
+
+                                        <p class="text-right" id="">Total ($): <?php echo $cartTotal ?><span id="carttotal"></span></p>
 
                                     </div>
+
+                                    <a href="product.php" class="btn btn-primary">Continue shopping</a>
                                 </div>
-                            </p>
+              </p>
 
                         </div>
                     </div>
                 </div>
+                        
+               
             </div>
-        </form>
     </div>
 
     <div class="footer-section">

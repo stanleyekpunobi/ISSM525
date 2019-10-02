@@ -1,40 +1,40 @@
 $(document).ready(function () {
 
-    var cartItems = JSON.parse(localStorage.getItem('cartData'));
+    // var cartItems = JSON.parse(localStorage.getItem('cartData'));
 
-    console.log(cartItems);
+    // console.log(cartItems);
 
-    var cartTotal = 0;
+    // var cartTotal = 0;
 
-    for (var i = 0; i < cartItems.length; i++) {
+    // for (var i = 0; i < cartItems.length; i++) {
 
-        cartTotal += cartItems[i].productPrice * cartItems[i].Quantity;
-
-
-        var cartItemRow = document.querySelector("#cartItem");
+    //     cartTotal += cartItems[i].productPrice * cartItems[i].Quantity;
 
 
-        cartItemRow.innerHTML += `<div class="row cartitem-row">
-                                    <div class="col-md-6">
-                                        <p> <img src="${cartItems[i].Image}" class="img-fluid" alt="" style="max-width: 20%; height: auto">
-                                        <strong class="p-name">${cartItems[i].ProductName}</strong></p>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <p><strong>Price: ${cartItems[i].productPrice}</strong>
-                                       </p>
-                                    </div>
-
-                                    <div class="col-md-2>
-                                     <span class="badge badge-primary quantity">Quantity ${cartItems[i].Quantity}</span>
-                                    </div>
-                                   
-                                </div>`
-    }
+    //     var cartItemRow = document.querySelector("#cartItem");
 
 
-    var carttotal = document.getElementById("carttotal");
+    //     cartItemRow.innerHTML += `<div class="row cartitem-row">
+    //                                 <div class="col-md-6">
+    //                                     <p> <img src="${cartItems[i].Image}" class="img-fluid" alt="" style="max-width: 20%; height: auto">
+    //                                     <strong class="p-name">${cartItems[i].ProductName}</strong></p>
+    //                                 </div>
+    //                                 <div class="col-md-4">
+    //                                     <p><strong>Price: ${cartItems[i].productPrice}</strong>
+    //                                    </p>
+    //                                 </div>
 
-    carttotal.innerHTML = cartTotal;
+    //                                 <div class="col-md-2>
+    //                                  <span class="badge badge-primary quantity">Quantity ${cartItems[i].Quantity}</span>
+    //                                 </div>
+
+    //                             </div>`
+    // }
+
+
+    // var carttotal = document.getElementById("carttotal");
+
+    // carttotal.innerHTML = cartTotal;
 
     $("#paybtn").click(function () {
 

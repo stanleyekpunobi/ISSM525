@@ -50,237 +50,237 @@ var productList = [{
 
 ]
 
-//initialize cart data
-var cartDataList = [];
+// //initialize cart data
+// var cartDataList = [];
 
-//initialize cart total
-var cartTotal = 0;
+// //initialize cart total
+// var cartTotal = 0;
 
-function addProductsToPage(productamount) {
+// function addProductsToPage(productamount) {
 
-    var productRow = document.querySelector("#productsrow");
+//     var productRow = document.querySelector("#productsrow");
 
-    for (var i = 0; i < productamount; i++) {
-        productRow.innerHTML += `<div class="col-md-4"> <div class="card product-card">
-            <img src= "${productList[i].ImageUrl}" class = "card-img-top product-img" alt = "${productList[i].Description}">
-            <div class="card-body">
-            <h5 class="card-title product-title"> ${productList[i].Name} <span class="badge badge-pill badge-primary">$${productList[i].Price}</span></h5> 
-            <p class="card-text product-description"> Product code: ${productList[i].ProductCode}</p>
-            <button class="btn btn-outline-success btn-sm btn-block btn-addto-cart" data-productname="${productList[i].Name}" data-productimage="${productList[i].ImageUrl}" data-productid="${productList[i].Id}" data-productprice="${productList[i].Price}"> Add to cart </button></div> </div> </div>`
-    }
+//     for (var i = 0; i < productamount; i++) {
+//         productRow.innerHTML += `<div class="col-md-4"> <div class="card product-card">
+//             <img src= "${productList[i].ImageUrl}" class = "card-img-top product-img" alt = "${productList[i].Description}">
+//             <div class="card-body">
+//             <h5 class="card-title product-title"> ${productList[i].Name} <span class="badge badge-pill badge-primary">$${productList[i].Price}</span></h5> 
+//             <p class="card-text product-description"> Product code: ${productList[i].ProductCode}</p>
+//             <button class="btn btn-outline-success btn-sm btn-block btn-addto-cart" data-productname="${productList[i].Name}" data-productimage="${productList[i].ImageUrl}" data-productid="${productList[i].Id}" data-productprice="${productList[i].Price}"> Add to cart </button></div> </div> </div>`
+//     }
 
 
-}
+// }
 
-function addToCart(productMetaData, cartItem) {
+// function addToCart(productMetaData, cartItem) {
 
-    var cartItemRow = document.querySelector("#cartItem");
+//     var cartItemRow = document.querySelector("#cartItem");
 
 
-    cartItemRow.innerHTML += `<div class="row cartitem-row">
-                                    <div class="col-md-6">
-                                    <input type="hidden" value="${productMetaData.productid}" class="p-id" />
-                                        <p> <img src="${productMetaData.productimage}" class="img-fluid" alt="" style="max-width: 20%; height: auto">
-                                        <strong class="p-name">${productMetaData.productname}</strong></p>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <p><strong>${productMetaData.productprice}</strong></p>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <span class="badge badge-primary quantity">${1}</span>
-                                        <button class="btn btn-secondary btn-sm increase-cart-Item" data-productid="${productMetaData.productid}" data-productprice="${productMetaData.productprice}">+</button>
-                                        <button class="btn btn-secondary btn-sm decrease-cart-item" data-productprice="${productMetaData.productprice}">-</button>
-                                        <button class="btn btn-secondary btn-sm remove-cart-item" data-productid="${productMetaData.productid}" data-productprice="${productMetaData.productprice}">x</button>
-                                    </div>
-                                </div>`
+//     cartItemRow.innerHTML += `<div class="row cartitem-row">
+//                                     <div class="col-md-6">
+//                                     <input type="hidden" value="${productMetaData.productid}" class="p-id" />
+//                                         <p> <img src="${productMetaData.productimage}" class="img-fluid" alt="" style="max-width: 20%; height: auto">
+//                                         <strong class="p-name">${productMetaData.productname}</strong></p>
+//                                     </div>
+//                                     <div class="col-md-2">
+//                                         <p><strong>${productMetaData.productprice}</strong></p>
+//                                     </div>
+//                                     <div class="col-md-4">
+//                                         <span class="badge badge-primary quantity">${1}</span>
+//                                         <button class="btn btn-secondary btn-sm increase-cart-Item" data-productid="${productMetaData.productid}" data-productprice="${productMetaData.productprice}">+</button>
+//                                         <button class="btn btn-secondary btn-sm decrease-cart-item" data-productprice="${productMetaData.productprice}">-</button>
+//                                         <button class="btn btn-secondary btn-sm remove-cart-item" data-productid="${productMetaData.productid}" data-productprice="${productMetaData.productprice}">x</button>
+//                                     </div>
+//                                 </div>`
 
-    cartItem.ProudtId = productMetaData.productid;
-    cartItem.Price = productMetaData.productprice;
-    cartItem.Quantity = 1;
-    cartItem.Total = productMetaData.productprice * cartItem.Quantity;
-    cartItem.Name = productMetaData.productname;
+//     cartItem.ProudtId = productMetaData.productid;
+//     cartItem.Price = productMetaData.productprice;
+//     cartItem.Quantity = 1;
+//     cartItem.Total = productMetaData.productprice * cartItem.Quantity;
+//     cartItem.Name = productMetaData.productname;
 
-    var cartItemsDomList = document.querySelectorAll(".cartitem-row");
+//     var cartItemsDomList = document.querySelectorAll(".cartitem-row");
 
-    var newCartTotal = 0;
+//     var newCartTotal = 0;
 
-    cartItemsDomList.forEach(element => {
+//     cartItemsDomList.forEach(element => {
 
-        var increaseItemButton = element.querySelector(".increase-cart-Item");
+//         var increaseItemButton = element.querySelector(".increase-cart-Item");
 
-        var decreaseItemButton = element.querySelector(".decrease-cart-item");
+//         var decreaseItemButton = element.querySelector(".decrease-cart-item");
 
-        var removeItemButton = element.querySelector(".remove-cart-item");
+//         var removeItemButton = element.querySelector(".remove-cart-item");
 
-        var productId = element.querySelector(".p-id");
+//         var productId = element.querySelector(".p-id");
 
-        var quantity = element.querySelector(".quantity");
+//         var quantity = element.querySelector(".quantity");
 
-        removeItemButton.addEventListener("click", function () {
+//         removeItemButton.addEventListener("click", function () {
 
-            // console.log(productId.value);
+//             // console.log(productId.value);
 
-            var removeItemData = removeItemButton.getAttribute("data-productid");
-            var removeItemDataPrice = removeItemButton.getAttribute("data-productprice");
+//             var removeItemData = removeItemButton.getAttribute("data-productid");
+//             var removeItemDataPrice = removeItemButton.getAttribute("data-productprice");
 
-            if (removeItemData = productId.value) {
+//             if (removeItemData = productId.value) {
 
-                // console.log(cartTotal);
+//                 // console.log(cartTotal);
 
-                // console.log(removeItemDataPrice);
+//                 // console.log(removeItemDataPrice);
 
-                newCartTotal = UpdateCartTotal(cartTotal, removeItemDataPrice, "minus");
+//                 newCartTotal = UpdateCartTotal(cartTotal, removeItemDataPrice, "minus");
 
-                carttotal.innerText = newCartTotal;
+//                 carttotal.innerText = newCartTotal;
 
-                cartTotal = newCartTotal;
+//                 cartTotal = newCartTotal;
 
-                console.log(newCartTotal)
+//                 console.log(newCartTotal)
 
-                element.remove();
+//                 element.remove();
 
-                newCartTotal = 0;
+//                 newCartTotal = 0;
 
-            }
+//             }
 
-        });
+//         });
 
-        increaseItemButton.addEventListener("click", function () {
+//         increaseItemButton.addEventListener("click", function () {
 
-            var increaseItemData = increaseItemButton.getAttribute("data-productid");
-            var increaseItemDataPrice = increaseItemButton.getAttribute("data-productprice");
+//             var increaseItemData = increaseItemButton.getAttribute("data-productid");
+//             var increaseItemDataPrice = increaseItemButton.getAttribute("data-productprice");
 
-            if (increaseItemData = productId.value) {
+//             if (increaseItemData = productId.value) {
 
-                var carttotal = document.getElementById("carttotal");
+//                 var carttotal = document.getElementById("carttotal");
 
 
-                var item_quantity = parseInt(quantity.innerText) + 1;
+//                 var item_quantity = parseInt(quantity.innerText) + 1;
 
-                quantity.innerText = item_quantity;
+//                 quantity.innerText = item_quantity;
 
-                newCartTotal = UpdateCartTotal(parseInt(cartTotal), parseInt(increaseItemDataPrice), "add");
+//                 newCartTotal = UpdateCartTotal(parseInt(cartTotal), parseInt(increaseItemDataPrice), "add");
 
-                cartTotal = newCartTotal;
+//                 cartTotal = newCartTotal;
 
 
-                carttotal.innerText = cartTotal;
+//                 carttotal.innerText = cartTotal;
 
 
-                // console.log(newCartTotal)
+//                 // console.log(newCartTotal)
 
 
-            }
+//             }
 
-        });
+//         });
 
-        decreaseItemButton.addEventListener("click", function () {
+//         decreaseItemButton.addEventListener("click", function () {
 
-            var decreaseItemData = decreaseItemButton.getAttribute("data-productid");
-            var decreaseItemDataPrice = decreaseItemButton.getAttribute("data-productprice");
+//             var decreaseItemData = decreaseItemButton.getAttribute("data-productid");
+//             var decreaseItemDataPrice = decreaseItemButton.getAttribute("data-productprice");
 
-            if (decreaseItemData = productId.value) {
+//             if (decreaseItemData = productId.value) {
 
-                var carttotal = document.getElementById("carttotal");
+//                 var carttotal = document.getElementById("carttotal");
 
 
-                var item_quantity = parseInt(quantity.innerText) - 1;
+//                 var item_quantity = parseInt(quantity.innerText) - 1;
 
-                quantity.innerText = item_quantity;
+//                 quantity.innerText = item_quantity;
 
-                newCartTotal = UpdateCartTotal(parseInt(cartTotal), parseInt(decreaseItemDataPrice), "minus");
+//                 newCartTotal = UpdateCartTotal(parseInt(cartTotal), parseInt(decreaseItemDataPrice), "minus");
 
-                cartTotal = newCartTotal;
+//                 cartTotal = newCartTotal;
 
 
-                carttotal.innerText = cartTotal;
+//                 carttotal.innerText = cartTotal;
 
 
-                console.log(newCartTotal)
+//                 console.log(newCartTotal)
 
-            }
+//             }
 
-        });
+//         });
 
 
-    });
+//     });
 
-    return cartItem;
-}
+//     return cartItem;
+// }
 
 
-function UpdateCartTotal(cartTotal, productValue, operation) {
+// function UpdateCartTotal(cartTotal, productValue, operation) {
 
-    if (operation === "add") {
+//     if (operation === "add") {
 
-        return cartTotal + productValue;
+//         return cartTotal + productValue;
 
-    } else {
-        return cartTotal - productValue;
+//     } else {
+//         return cartTotal - productValue;
 
-    }
-}
+//     }
+// }
 
 $(document).ready(function () {
 
-    //check if user is logged in
-    var isLogin = localStorage.getItem("islogin")
+    // //check if user is logged in
+    // var isLogin = localStorage.getItem("islogin")
 
-    if (isLogin != null || undefined) {
-        var logoutbutton = document.getElementById("loginatag");
-        logoutbutton.innerText = "Log out";
-    } else {
-        window.location.replace("http://127.0.0.1:5500/login.html");
-    }
+    // if (isLogin != null || undefined) {
+    //     var logoutbutton = document.getElementById("loginatag");
+    //     logoutbutton.innerText = "Log out";
+    // } else {
+    //     window.location.replace("http://127.0.0.1:5500/login.html");
+    // }
 
-    //add products
-    addProductsToPage(5);
-
-
-    for (var i = 0; i < cartDataList.length; i++) {
-        cartTotal = cartTotal + cartDataList[i].Total;
-    };
-
-    var carttotal = document.getElementById("carttotal");
-
-    carttotal.innerHTML = cartTotal;
-
-    //clear cart button
-    $("#clearcart").click(function () {
-
-        cartDataList.length = 0;
-
-        var cartItemRow = document.querySelector("#cartItem");
-
-        cartItemRow.innerHTML = ``;
-
-        cartTotal = UpdateCartTotal(0, 0, "");
-
-        carttotal.innerText = cartTotal;
-
-        alert("Cart cleared");
-    });
+    // //add products
+    // addProductsToPage(5);
 
 
-    //add to cart buttion
-    $("button.btn-addto-cart").click(function () {
+    // for (var i = 0; i < cartDataList.length; i++) {
+    //     cartTotal = cartTotal + cartDataList[i].Total;
+    // };
 
-        var cartItem = {
-            ProudtId: 0,
-            Name: '',
-            Quantity: '',
-            Price: 0,
-            Total: 0
-        }
+    // var carttotal = document.getElementById("carttotal");
 
-        //alert("clicked");
-        var productMetaData = $(this).data();
-        var cartItem = addToCart(productMetaData, cartItem);
-        cartDataList.push(cartItem);
-        cartTotal = UpdateCartTotal(cartTotal, productMetaData.productprice, "add");
+    // carttotal.innerHTML = cartTotal;
 
-        carttotal.innerText = cartTotal;
-    });
+    // //clear cart button
+    // $("#clearcart").click(function () {
+
+    //     cartDataList.length = 0;
+
+    //     var cartItemRow = document.querySelector("#cartItem");
+
+    //     cartItemRow.innerHTML = ``;
+
+    //     cartTotal = UpdateCartTotal(0, 0, "");
+
+    //     carttotal.innerText = cartTotal;
+
+    //     alert("Cart cleared");
+    // });
+
+
+    // //add to cart buttion
+    // $("button.btn-addto-cart").click(function () {
+
+    //     var cartItem = {
+    //         ProudtId: 0,
+    //         Name: '',
+    //         Quantity: '',
+    //         Price: 0,
+    //         Total: 0
+    //     }
+
+    //     //alert("clicked");
+    //     var productMetaData = $(this).data();
+    //     var cartItem = addToCart(productMetaData, cartItem);
+    //     cartDataList.push(cartItem);
+    //     cartTotal = UpdateCartTotal(cartTotal, productMetaData.productprice, "add");
+
+    //     carttotal.innerText = cartTotal;
+    // });
 
     $("#checkOut").click(function () {
 

@@ -1,4 +1,4 @@
-<?php include('./includes/db.php');
+<?php include("includes/db.php");
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,28 +11,13 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/custom.css">
+    <link rel="stylesheet" href="css/custom.css">
     <script src="https://kit.fontawesome.com/d0457af364.js"></script>
 
 </head>
 
 <body>
-    <?php $query = "SELECT * FROM products"; 
-    $result = mysqli_query($conn, $query); 
-    if(mysqli_num_rows($result) > 0) 
-    { 
-    
-     while( $row = mysqli_fetch_array($result)) 
-    { ?>
-    
-    <!-- insert product page html code here -->
-    
-    <?php 
-        
-    } } 
-        
-    ?>
-        <div class="container-fluid">
+  <div class="container-fluid">
         <nav class="navbar navbar-expand-lg sticky-top navbar-light bg-light">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03"
                 aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
@@ -60,73 +45,46 @@
         </nav>
 
     </div>
+   <?php $query = "SELECT * FROM products"; 
+    $result = mysqli_query($conn, $query); 
+    if(mysqli_num_rows($result) > 0) 
+    { 
+    
+     while( $row = mysqli_fetch_array($result)) 
+    { 
+   // echo $row['product_code'];
+    ?>
+    
+    <!-- insert product page html code here -->
 
     <div class="container-fluid store-body">
+
         <div class="row">
-            <div class="col-md-8 col-sm-12">
-                <div class="row" id="productsrow">
-                    <!-- <div class="col-md-4">
+           
+                    <div class="col-md-4">
                         <div class="card product-card">
-                            <img src="https://smhttp-ssl-77207.nexcesscdn.net/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/2/8/2886m2.jpg"
-                                class="card-img-top product-img" alt="">
+                            <img src="<?php echo $row['picture'] ?>" class="card-img-top product-img" alt="">
                             <div class="card-body">
-                                <h5 class="card-title product-title">Test Model
-                                    <span class="badge badge-pill badge-primary">$20</span>
+                                <h5 class="card-title product-title"><?php echo $row['name'] ?>
+                                    <span class="badge badge-pill badge-primary">$<?php echo $row['price'] ?></span>
                                 </h5>
-                                <p class="card-text product-description"> Product code: VSDHGH
-
+                                <p class="card-text product-description"> Product code: <?php echo $row['product_code'] ?>
                                 </p>
-
-                                <button class="btn btn-outline-success btn-sm btn-block"> Add to cart </button>
+                                <a href="productdetails.php?productid=<?php echo $row['product_code'] ?>" class="btn btn-outline-success btn-sm btn-block">View </a>
+                               
                             </div>
+                            
                         </div>
-                    </div> -->
-                </div>
+                 
             </div>
-
-            <div class="col-md-4">
-                <div class="check-out-row p-3">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">My Cart</h5>
-                            <p class="card-text cart-text" id="cartItem">
-                                <!-- <div class="row cartitem-row">
-                                    <div class="col-md-6">
-
-                                        <p> <img src="https://smhttp-ssl-77207.nexcesscdn.net/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/2/8/2886m2.jpg"
-                                                class="img-fluid" alt=""
-                                                style="max-width: 10%; height: auto"><strong>Product Name</strong></p>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <p><strong>Price</strong></p>
-
-                                    </div>
-                                    <div class="col-md-4">
-                                        <span class="badge badge-primary">Qty</span>
-                                        <button class="btn btn-secondary btn-sm">+</button>
-                                        <button class="btn btn-secondary btn-sm">-</button>
-                                        <button class="btn btn-secondary btn-sm">x</button>
-
-                                    </div>
-                                </div> -->
-
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <p class="text-right" id="">Total ($): <span id="carttotal"></span></p>
-
-                                    </div>
-                                </div>
-                            </p>
-                            <a href="#" class="btn btn-primary" id="checkOut">Check Out</a>
-                            <a href="#" class="btn btn-danger" id="clearcart">Clear Cart</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
+     </div>
     </div>
-
+    <?php 
+        
+    } } 
+        
+    ?>
+    
     <div class="footer-section">
         <p class="footer-content">&copy; Vuss inc. Group F Lab Live Demo</p>
     </div>
@@ -141,7 +99,7 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
 
-    <script src="js/store.js"></script>
+    <!-- <script src="js/store.js"></script> -->
 </body>
 
 </html>
