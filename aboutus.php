@@ -27,14 +27,14 @@
             <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="login.html" id="loginatag">Login <span
+                        <a class="nav-link" href="login.php" id="loginatag">Login <span
                                 class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="aboutus.html">About us</a>
+                        <a class="nav-link" href="aboutus.php">About us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="store.html" tabindex="-1" aria-disabled="true">
+                        <a class="nav-link" href="product.php" tabindex="-1" aria-disabled="true">
                             <i class="fas fa-shopping-cart"></i>
                         </a>
                     </li>
