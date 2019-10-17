@@ -45,6 +45,10 @@
         </nav>
 
     </div>
+
+ <div class="container-fluid store-body">
+
+        <div class="row">
    <?php $query = "SELECT * FROM products"; 
     $result = mysqli_query($conn, $query); 
     if(mysqli_num_rows($result) > 0) 
@@ -57,9 +61,7 @@
     
     <!-- insert product page html code here -->
 
-    <div class="container-fluid store-body">
-
-        <div class="row">
+   
            
                     <div class="col-md-4">
                         <div class="card product-card">
@@ -77,14 +79,14 @@
                         </div>
                  
             </div>
-     </div>
-    </div>
+    
     <?php 
         
     } } 
         
     ?>
-    
+     </div>
+    </div>
     <div class="footer-section">
         <p class="footer-content">&copy; Vuss inc. Group F Lab Live Demo</p>
     </div>

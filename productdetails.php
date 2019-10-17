@@ -76,7 +76,7 @@ include("includes/db.php");
  
             </div>
                <div class="col-md-4">
-                          <p class="card-text product-description"> <?php echo $row['description'] ?>
+                          <p class="product-description"> <?php echo $row['description'] ?>
                                 </p>
                                 <div class="form-group">
                                 <label for="">Quantity</label>
